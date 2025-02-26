@@ -6,6 +6,8 @@ import TileLayer from "ol/layer/tile";
 import OSM from "ol/source/osm";
 import { XYZ } from "ol/source";
 import { Extent } from "ol/extent";
+import { ButtonsPanel } from "./ButtonsPanel";
+import { css } from "@emotion/react";
 
 const MapView = () => {
   const [contentHeight, setContentHeight] = useState<number>(
@@ -81,7 +83,6 @@ const MapView = () => {
             metadata.maxY,
           ];
           mapObject.current!.getView().fit(extent, { duration: 1000 });
-          console.log(1, { extent });
         })
         .catch((e) => {
           console.log({ e });
@@ -96,10 +97,15 @@ const MapView = () => {
   }, []);
 
   return (
-    <>
+    <div
+      css={css`
+        position: relative;
+      `}
+    >
       <div id="map" style={{ width: "100%", height: `${contentHeight}px` }} />
-    </>
+      <ButtonsPanel />
+    </div>
   );
 };
 
-export default MapView;
+export { MapView };

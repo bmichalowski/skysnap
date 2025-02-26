@@ -1,1 +1,2 @@
-export { default as Header } from "./Header.tsx";
+export { Header } from "./Header.tsx";
+export * from "./shared";
