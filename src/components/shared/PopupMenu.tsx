@@ -42,8 +42,7 @@ const layersPopupStyles = css`
   position: absolute;
   bottom: -10px;
   left: -10px;
-  min-width: 120px;
-  max-width: 240px;
+  width: 300px;
   padding: 15px;
   border-radius: 4px;
   margin: 20px;

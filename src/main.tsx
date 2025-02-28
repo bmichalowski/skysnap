@@ -1,13 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components";
-import { MapView } from "./features/MapView";
+import { AppRoutes } from "./AppRoutes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Header />
-    <div style={{ marginTop: "60px" }}>
-      <MapView />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <div style={{ marginTop: "60px" }}>
+        <AppRoutes />
+      </div>
+    </BrowserRouter>
   </StrictMode>
 );
