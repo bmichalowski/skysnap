@@ -55,7 +55,7 @@ const MapComponent = ({ layers }: MapComponentProps) => {
     mapObjectRef.current = map;
 
     const zoomToData = () => {
-      fetch("data/6/rasters/500/500/metadata.json")
+      fetch("http://localhost:5173/data/6/rasters/500/500/metadata.json")
         .then((res) => res.json())
         .then((metadata) => {
           const extent: Extent = [
