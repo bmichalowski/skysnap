@@ -1,29 +1,32 @@
 import { css } from "@emotion/react";
+import { CSSProperties, ReactElement } from "react";
 
 type WidgetButtonProps = {
-  label: string;
-  onClick: () => void;
+  label: string | ReactElement;
+  onClick?: () => void;
+  style?: CSSProperties;
 };
 
-const WidgetButton = ({ label, onClick }: WidgetButtonProps) => (
-  <div
-    onClick={onClick}
-    css={css`
-      width: 20px;
-      height: 20px;
-      border-radius: 10px;
-      background-color: rgba(125, 125, 125, 0.4);
-      color: white;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-around;
-      &:hover {
-        background-color: rgba(125, 125, 125, 0.8);
-      }
-    `}
-  >
+const WidgetButton = ({ label, onClick, style }: WidgetButtonProps) => (
+  <div css={widgetStyles} onClick={onClick} style={style}>
     {label}
   </div>
 );
+
+const widgetStyles = css`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #999;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    background-color: #ddd;
+  }
+`;
 
 export { WidgetButton };
